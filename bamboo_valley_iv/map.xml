@@ -14,6 +14,12 @@
     <team id="red" color="dark red" max="5">Red</team>
     <team id="blue" color="blue" max="5">Blue</team>
 </teams>
+<!-- Scoring -->
+<score>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <limit>400</limit>
+</score>
 <respawn delay="4s" auto="true"/>
 <spawns>
     <spawn team="red" filter="spawn1" kit="redKit">
@@ -207,7 +213,7 @@
 <regions>
     <apply block="nature" region="everywhere"/>
 </regions>
-<control-points incremental="true" neutral-state="true" show-progress="true" scaled-time="true" time-multiplier="0.25" capture-time="6s">
+<control-points incremental="true" neutral-state="true" show-progress="true" scaled-time="true" time-multiplier="0.25" capture-time="6s" points="0">
     <control-point initial-owner="red" id="red-last" name="Red Last">
         <capture-region>
             <cuboid min="-51,12,52" max="-58,15,45"/>
@@ -236,7 +242,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid" name="Mid">
+    <control-point id="mid" name="Mid" points="1">
         <capture-region>
             <cuboid min="-95,11,-0" max="-103,14,-8"/>
         </capture-region>
@@ -275,6 +281,21 @@
             <any>
                 <objective>blue-2nd</objective>
                 <team>blue</team>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point id="end" points="10000" capture-time="0s" show="false">
+        <capture-region><region name="field"/></capture-region>
+        <player-filter>
+            <any>
+                <all>
+                    <objective>blue-last</objective>
+                    <team>red</team>
+                </all>
+                <all>
+                    <objective>red-last</objective>
+                    <team>blue</team>
+                </all>
             </any>
         </player-filter>
     </control-point>
