@@ -10,6 +10,12 @@
     <team id="red" color="dark red" max="7">Red</team>
     <team id="blue" color="blue" max="7">Blue</team>
 </teams>
+<!-- Scoring -->
+<score>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <limit>400</limit>
+</score>
 <filters>
     <filter name="only-blue">
         <team>blue</team>
@@ -159,7 +165,7 @@
         <region><cuboid min="-1,9,-79" max="1,10,-77"/></region>
     </portal>
 </portals>
-<control-points incremental="true" neutral-state="true" show-progress="true" scaled-time="true" time-multiplier="0.25">
+<control-points incremental="true" neutral-state="true" show-progress="true" scaled-time="true" time-multiplier="0.25" points="0">
     <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="5s">
         <capture-region> <cuboid min="4,11,46" max="14,15,56"/> </capture-region>
         <progress-display-region> <cuboid min="4,11,46" max="14,15,56"/> </progress-display-region>
@@ -177,7 +183,7 @@
             <objective>mid</objective>
         </any></player-filter>
     </control-point>
-    <control-point id="mid" name="Mid" capture-time="5s">
+    <control-point id="mid" name="Mid" capture-time="5s" points="1">
         <capture-region> <cuboid min="-5,4,-5" max="5,8,5"/> </capture-region>
         <progress-display-region> <cuboid min="-11,2,-11" max="11,8,11"/> </progress-display-region>
         <owner-display-region> <region name="mid-owner"/> </owner-display-region>
@@ -202,6 +208,21 @@
             <objective>blue-2nd</objective>
             <team>blue</team>
         </any></player-filter>
+    </control-point>
+    <control-point id="end" points="10000" capture-time="0s" show="false">
+        <capture-region><region name="field"/></capture-region>
+        <player-filter>
+            <any>
+                <all>
+                    <objective>blue-last</objective>
+                    <team>red</team>
+                </all>
+                <all>
+                    <objective>red-last</objective>
+                    <team>blue</team>
+                </all>
+            </any>
+        </player-filter>
     </control-point>
 </control-points>
 <king/>
