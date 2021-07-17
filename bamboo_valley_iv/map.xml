@@ -285,7 +285,7 @@
         </player-filter>
     </control-point>
     <control-point id="end" points="10000" capture-time="0s" show="false">
-        <capture-region><region name="field"/></capture-region>
+        <capture-region><everywhere/></capture-region>
         <player-filter>
             <any>
                 <all>
